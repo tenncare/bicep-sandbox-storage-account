@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Script to create a Storage Account configured for SFTP
+#
+
+# Deploy Resources
+az group create --name Storage \
+                --location centralus
+
+az deployment group create --name StorageAccountDeployment \
+                           --resource-group Storage \
+                           --template-file storage-account.bicep \
+                           --parameters @storage-account.parameters.json
+
+# Confirm Resources
+az deployment group show --name StorageAccountDeployment \
+                         --resource-group Storage
