@@ -21,26 +21,28 @@ param storageAccountType string = 'Standard_LRS'
 //])
 param location string = resourceGroup().location // Can't use @allowed with this function as the default!
 
+@description('Company Name')
+@minLength(3)
+@maxLength(11)
+param companyName string = 'TennCare'
+
 @description('Administrator Username')
 param administratorUserName string = 'administrator'
-
-@description('Administrator SSH Public Key. If not specified, Azure will generate a password which can be accessed securely')
-param administratorPublicKey string = ''
 
 @description('Contributor Username')
 param contributorUserName string = 'contributor'
 
-@description('Contributor SSH Public Key. If not specified, Azure will generate a password which can be accessed securely')
-param contributorPublicKey string = ''
-
 @description('Reader Username')
 param readerUserName string = 'reader'
 
-@description('Reader SSH Public Key. If not specified, Azure will generate a password which can be accessed securely')
-param readerPublicKey string = ''
-
-@description('Default Container. Must be a container name. This container will be created. Home directory for all users.')
+@description('Default Container. Must be a valid container name. This container will be created, and will be the home directory for all users.')
 param defaultContainer string = 'default'
+
+var administratorKeyName = toLower('${companyName}_${administratorUserName}')
+
+var contributorKeyName = toLower('${companyName}_${contributorUserName}')
+
+var readerKeyName = toLower('${companyName}_${readerUserName}')
 
 var storageAccountName = toLower('${storageAccountPrefix}${uniqueString(resourceGroup().id)}')
 
@@ -65,6 +67,10 @@ resource container 'Microsoft.Storage/storageAccounts/blobServices/containers@20
   }
 }
 
+resource administratorKey 'Microsoft.Compute/sshPublicKeys@2022-03-01' existing = {
+  name: administratorKeyName
+}
+
 resource administratorUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05-01' = {
   parent: sa
   name: administratorUserName
@@ -80,11 +86,15 @@ resource administratorUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05
     sshAuthorizedKeys: empty(administratorPublicKey) ? null : [
       {
         description: '${administratorUserName} public key'
-        key: administratorPublicKey
+        key: administratorKey.properties.publicKey
       }
     ]
     hasSharedKey: false
   }
+}
+
+resource contributorKey 'Microsoft.Compute/sshPublicKeys@2022-03-01' existing = {
+  name: contributorKeyName
 }
 
 resource contributorUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05-01' = {
@@ -102,11 +112,15 @@ resource contributorUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05-0
     sshAuthorizedKeys: empty(contributorPublicKey) ? null : [
       {
         description: '${contributorUserName} public key'
-        key: contributorPublicKey
+        key: contributorKey.properties.publicKey
       }
     ]
     hasSharedKey: false
   }
+}
+
+resource readerKey 'Microsoft.Compute/sshPublicKeys@2022-03-01' existing = {
+  name: readerKeyName
 }
 
 resource readerUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05-01' = {
@@ -124,7 +138,7 @@ resource readerUser 'Microsoft.Storage/storageAccounts/localUsers@2022-05-01' = 
     sshAuthorizedKeys: empty(readerPublicKey) ? null : [
       {
         description: '${readerUserName} public key'
-        key: readerPublicKey
+        key: readerKey.properties.publicKey
       }
     ]
     hasSharedKey: false

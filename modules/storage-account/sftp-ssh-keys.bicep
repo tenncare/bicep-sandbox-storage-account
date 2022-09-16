@@ -1,8 +1,3 @@
-@description('Company Name')
-@minLength(3)
-@maxLength(11)
-param companyName string = 'TennCare'
-
 @description('Region')
 //@allowed([
 //  'centralus'
@@ -12,6 +7,11 @@ param companyName string = 'TennCare'
 //  'westus3'
 //])
 param location string = resourceGroup().location // Can't use @allowed with this function as the default!
+
+@description('Company Name')
+@minLength(3)
+@maxLength(11)
+param companyName string = 'TennCare'
 
 @description('Administrator Username')
 param administratorUserName string = 'administrator'
