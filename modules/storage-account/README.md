@@ -11,8 +11,23 @@ The SFTP Feature is in preview as of this writing. You need to register for it b
     * Choose the Preview Features menu option
     * Search for SFTP, then register this feature
 
+1. Steps to Confirm and Register for this feature in PowerShell
 
+    ```PowerShell
+    Get-AzContext
+    //Set-AzContext -Subscription $Subscription
+    Get-AzProviderFeature -FeatureName "AllowSFTP" -ProviderNamespace "Microsoft.Storage"
+    Register-AzProviderFeature -FeatureName "AllowSFTP" -ProviderNamespace "Microsoft.Storage"
+    ```
 
+1. Steps to Confirm and Register for this feature in CLI
+
+    ```bash
+    az account show
+    //az account set --subscription $subscription
+    az feature show --namespace Microsoft.Storage --name AllowSFTP
+    az feature register --namespace Microsoft.Storage --name AllowSFTP
+    ```
 
 ## Links
 - [SFTP support for Azure Blob Storage - now in public preview](https://azure.microsoft.com/en-us/updates/sftp-support-for-azure-blob-storage-now-in-public-preview/) (11/17/2021)

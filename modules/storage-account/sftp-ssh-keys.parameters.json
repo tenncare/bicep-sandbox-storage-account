@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "companyName": {
+      "value": "TennCare"
+    },
+    "administratorUserName": {
+      "value": "administrator"
+    },
+    "administratorPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDLbeRdGXkNE2F0XdCY2H1MJFMBYcgpf1UblLQNkBz1wgW+hWEEVlst78LnYMQhyrbcrN2cZoJ5/fF1b5qmQsi+gNiHWHi1kAtGoCpl0DoymsoGMd7fkhRN7ncxMZJo+qfOhFljyvHtm3ACHd0D+vFy1KN9odAiR/5DYe3wRj4CjqfegbiEHi21RpnBfRQdq+zsxVuZNcmCURfugtIGK1EL/Nbt0Ugs0SaIxG1zVUfSbi+XPx5dXrBLXPGNVdJwP85nabdNVxCZa0fOBNLLNqkiTx9i6FCpTXsso7TO4Hw6KpTyaMZ5gnTM9jl0096zjSDqzpq+VWM5qiVJi3hh/qJ4COiFB6eg2LdCSF2gDSm8RLXbPCaV8bE1VymlNfAHRK9YBJoW6+ZCcahDywCT+tYkmdTfWRR/a+/36ZkAppyeoOEqMiWVwm3Zoq8/NtLbSEQv6B4c7jYOSfTwgVMGDO1/w/zSGFAUbkXv8Xu9nOzTf/6WHWU+cTwIDLjtXSX2RsZnMBtmmjIVlCfElkIA8yCym4uLij8VVFIneLrR+393mJWXa+z4b+DVZrk3zbyO/o8iuQWLAzWbgq7p/OdtbaoTnVtDZMIa8s0tw/Vk9PjtvCwCZSI2JwkiBw/IsgOQ4AT+qRkuvURmDpXvwzOuiXksuxthx3+2l4RKZDjDAvzTbQ== administrator@tenncare.com"
+    },
+    "contributorUserName": {
+      "value": "contributor"
+    },
+    "contributorPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjIlsqN8b8x75cdjPWRQrC7r6LZjp8UpNt+IPW/ICpxMV8dipzCgUyusPAISv6GuS5MjONm4Q3ykYVt0BQPKwTV88EfUkfV3Xnsh/DdB74CpbtuDRpDeorhheq+vLFnTNCcWvutBaEBZvd+yzLBPuKseRYjQGOooNPj8GLUOsRhkrVJuJBk4S28eGkt+Jj0B9Gpq9GrkWvs9xrjIDhhg20U+9DpyF1GlBCgejL+8mud+IKXtzHRMUti2MQE5WqcoKK6fhwYVDWvQXNGJjla+SjRUBB00dCqRmOfR08VTvPHgmM2ULNpqFav7zBLuAH/EHrqRJtdGPDf57aO/+FAs5vZt5vEzHgA8XtJMhk19O25tUVojbF88xEfPj7nOfJ3gwIBGuuUBaLf/avwdLE+3GQCw4O3aWjwEghtvfTmi/UkYMykAEc0ts7UgwkCihp51uK7TE3uy9afYbsz8kaPk6RcDDOf3T1xSCIPTro4LbRqZ7ArqIU15MU9PKNCeDSmV8nARdXzuJCyTuK9F8ykonQ4f8qHMTBNOBVnbuncpCke7nvd0Q2snSnBgue7eoX8YrP33PBO98+2SlTt+wu7UHE4x0QLNGo2AI6avKFRl6czwCdHCbAB9yYHFq0cov40BSiCyB5G/iH2UNW4bpTnDIMqzKDlMFf0wS2WW3LC0HSPQ== contributor@tenncare.com"
+    },
+    "readerUserName": {
+      "value": "reader"
+    },
+    "readerPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/1gZ/nmUtQK0nMNnfZ529B0cO9iD3ETpmDm7moRs/Lsa8H3CjEgNsoG82beNrRbIM1eyEgg5M52DHTH74zUPfaR9Xt4mDOcmFHKxrh2SEy/h0jmqLbga2zM8TiTt3ihK3Esfo2gZECoQrlx7XXK/waUHNem5zoBF6aXSNwZoNH/RitVRxJvdRFOYJAZcXXVqRvaHHqg3sKSABkcbWgpToskMk1fiQBKxMouxJXWhHVqQJ4Xd4by0JZaL0QZaEZuRMoaH22f0U1PzrEcz1eB2IL1fnkP4QWzHBuPPxB457vkgvxO0SVMYB20YrXvglSkdjWwEpi/QnDOaSz+57LKTsd4CZTaU+83GjpFfWtQSjGb65AAvqU6kPwmpTEbjhnRK9yRIGtVN+ZFvLOl+pCB53ta+Xku5sQyybiToCfzvKiZ15MBEdZpZEFs25ujKxlZDw+BSfnTv4AOy2ZhAoacbA1gbWfUL5nePuYm+nN3KqW3O+TYAeo3z33ZrtlvRWv35q9M7fITJ7i/wxAL6T3ByAY9TF1qHb4R5KPIAQkrJGGIYdwcIy4w5BYMBsYYnqZtf8WYuUiD1lkfhktyatiK3bqv+Rbd9OnWVEUvncYdb9dX1Ndv5C720XRJ8cCvhrl2QvLnS8kVgKgFk7zVVKhC31h86PKorUrTkaX/2HCyfg1Q== reader@tenncare.com"
+    }
+  }
+}
