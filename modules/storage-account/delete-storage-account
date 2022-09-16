@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Script to delete the Resource Group for the Storage Account
-#
-
-# Delete Resources
-az group delete --name Storage

@@ -15,4 +15,4 @@ New-AzResourceGroupDeployment -Name "SftpSshKeysDeployment" `
 Get-AzResourceGroupDeployment -Name "SftpSshKeysDeployment" `
                               -ResourceGroupName "SftpStorage"
 
-Get-AzSshKey - ResourceGroupName "SftpStorage"
+Get-AzSshKey -ResourceGroupName "SftpStorage"
