@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Script to delete only the SSH Keys from the Storage Account configured for SFTP
+#
+
+# Delete SSH Keys
+az sshkey delete --name tenncare_administrator \
+                 --resource-group SftpStorage
+az sshkey delete --name tenncare_contributor \
+                 --resource-group SftpStorage
+az sshkey delete --name tenncare_reader \
+                 --resource-group SftpStorage

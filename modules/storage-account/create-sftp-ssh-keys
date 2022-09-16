@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Script to create SSH Keys for Local Users associated with a Storage Account configured for SFTP
+#
+
+# Deploy Resources
+az group create --name SftpStorage \
+                --location centralus
+
+az deployment group create --name SftpStorageAccountDeployment \
+                           --resource-group SftpStorage \
+                           --template-file sftp-storage-account.bicep \
+                           --parameters @sftp-storage-account.parameters.json
+
+# Confirm Resources
+az deployment group show --name SftpStorageAccountDeployment \
+                         --resource-group SftpStorage
+
+az sshkey list --resource-group SftpStorage
